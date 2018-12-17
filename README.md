@@ -57,12 +57,7 @@ Here are some links that I find useful to get started:
 
 # Use Spinnaker
 
-In this simple installation Spinnaker is not exposed to the Internet due to the fact that https and authentication is not configured, 
-so we use ssh port forwaring to access the Spinnaker server on [http://localhost:9000](http://localhost:9000).
-
-```
-ssh -L8084:127.0.0.1:8084 -L9000:127.0.0.1:9000 -L9001:127.0.0.1:9001 root@<spinnaker-server>
-```
+![Overview](img/spinnaker-kubernetes-overview.gif)
 
 We will create a simple pipeline that deploys a simple web application 
 - from a Docker Registry (quay.io/woditschka/tfa-web)
@@ -70,6 +65,12 @@ We will create a simple pipeline that deploys a simple web application
 - to a Kubernetes cluster 
 - scale the deployment up and down
 
+In this simple installation Spinnaker is not exposed to the Internet due to the fact that https and authentication is not configured, 
+so we use ssh port forwaring to access the Spinnaker server on [http://localhost:9000](http://localhost:9000).
+
+```
+ssh -L8084:127.0.0.1:8084 -L9000:127.0.0.1:9000 -L9001:127.0.0.1:9001 root@<spinnaker-server>
+```
 
 ## Create the application
 
