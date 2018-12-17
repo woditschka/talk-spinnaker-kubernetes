@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tfa-web
+  labels:
+    app: tfa-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tfa-web
+  template:
+    metadata:
+      labels:
+        app: tfa-web
+    spec:
+      containers:
+        - name: tfa-web
+          image: quay.io/woditschka/tfa-web
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tfa-web
+spec:
+  selector:
+    app: tfa-web
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
