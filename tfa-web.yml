@@ -33,9 +33,11 @@ kind: Service
 metadata:
   name: tfa-web
 spec:
+  type: LoadBalancer
   selector:
     app: tfa-web
   ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       targetPort: 8080
+      name: http
