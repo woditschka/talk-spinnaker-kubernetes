@@ -27,6 +27,14 @@ spec:
           image: quay.io/woditschka/tfa-web
           ports:
             - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
 ---
 apiVersion: v1
 kind: Service
