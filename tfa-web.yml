@@ -27,6 +27,11 @@ spec:
           image: quay.io/woditschka/tfa-web
           ports:
             - containerPort: 8080
+            - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              port: 8081
+              path: "/actuator/health"
 ---
 apiVersion: v1
 kind: Service
